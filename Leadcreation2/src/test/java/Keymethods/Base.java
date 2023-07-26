@@ -53,7 +53,7 @@ public class Base extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\Screenshot1.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot1.png",
 							"VakilSearchURL launched").build());
 
 		} else {
@@ -62,7 +62,7 @@ public class Base extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\Screenshot1.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot1.png",
 							"VakilSearchURL").build());
 
 		}
@@ -90,7 +90,7 @@ public class Base extends HelpdeskPageobject {
 		String Date3 = dateFormat3.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date3 + "\\Screenshot5.png",
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date3 + "\\Screenshot5.png",
 						"Payment Cart PageTotal Time for page load " + totalTime + "ms").build());
 		// HelpdeskPageobject.GSTRegistration.click();
 
@@ -154,7 +154,7 @@ public class Base extends HelpdeskPageobject {
 		String Date4 = dateFormat4.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date4 + "\\Screenshot10.png",
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot10.png",
 						"Payment Cart PageTotal Time for page load " + totalTime1).build());
 		Thread.sleep(3000);
 		try {
@@ -177,7 +177,7 @@ public class Base extends HelpdeskPageobject {
 //			String Date1 = dateFormat.format(new Date());
 //			test.log(Status.PASS,
 //					MediaEntityBuilder.createScreenCaptureFromPath(
-//							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\Screenshot10.png",
+//							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot10.png",
 //							"Otp Validation / Payment Cart Page").build());
 //			System.out.println("MyIntrest1");
 //		}
@@ -220,7 +220,7 @@ public class Base extends HelpdeskPageobject {
 		String Date2 = dateFormat2.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date2 + "\\Screensho49.png",
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screensho49.png",
 						"Payment Cart PageTotal Time for page load ").build());
 		Thread.sleep(2000);
 		LoginPageobjects.Next.click();
@@ -284,7 +284,7 @@ public class Base extends HelpdeskPageobject {
 			String Date4 = dateFormat4.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date4 + "\\Screenshot10.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot10.png",
 							"Payment Cart PageTotal Time for page load " + totalTime2).build());
 			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
 			driver.findElement(By.xpath("//input[@id='gpay']")).click();
@@ -314,7 +314,7 @@ public class Base extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\Screenshot10.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot10.png",
 							"Otp Validation / Payment Cart Page").build());
 			System.out.println("MyIntrest1");
 		}
@@ -344,7 +344,7 @@ public class Base extends HelpdeskPageobject {
 		String Date2 = dateFormat1.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date2 + "\\Screenshot7.png",
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screenshot7.png",
 						"Trademark Registration Time for page load " + totalTime + "ms").build());
 		// HelpdeskPageobject.GSTRegistration.click();
 
@@ -410,7 +410,7 @@ public class Base extends HelpdeskPageobject {
 		String Date3 = dateFormat2.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date3 + "\\Screenshot8.png",
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date3 + "\\Screenshot8.png",
 						"After Consult an Expert Click page load " + totalTime2 + "ms").build());
 		Thread.sleep(1500);
 
@@ -435,7 +435,7 @@ public class Base extends HelpdeskPageobject {
 			String Date4 = dateFormat4.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date4 + "\\Screenshot9.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot9.png",
 							"Payment Cart Page  Time for load " + totalTime2 + "ms").build());
 
 			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
@@ -464,7 +464,7 @@ public class Base extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\Screenshot9.png",
+							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot9.png",
 							"Payment Cart Page").build());
 			System.out.println(MyIntrest1);
 		}
