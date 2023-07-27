@@ -92,7 +92,7 @@ public static void main(String[] args) throws IOException {
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			//"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots"
 			// Mention the file which you want to send
-			String filename = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\extentreport.html";
+			String filename = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\extentreport.html";
 		//	String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html";
 			// Create data source and pass the filename
 			DataSource source = new FileDataSource(filename);

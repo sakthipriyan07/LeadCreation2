@@ -44,7 +44,7 @@ public class Base extends HelpdeskPageobject {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 
-		driver.get("https://qe.vakilsearch.com/");
+		driver.get("https://vakilsearch.com/");
 
 		PageFactory.initElements(driver, LoginPageobjects.class);
 		if (driver.getTitle() != "Online Legal Services for Startups & SMEs in India | Vakil Search") {
@@ -74,6 +74,8 @@ public class Base extends HelpdeskPageobject {
 
 	public void GstFiling(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws IOException, InterruptedException, AWTException {
+		SimpleDateFormat dateFormatGstFiling = new SimpleDateFormat("MMddyyMMS");
+		String DateGstFiling = dateFormatGstFiling.format(new Date());
 		test = extentreport.createTest("GSTReturnsFiling");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Thread.sleep(2000);
@@ -82,6 +84,9 @@ public class Base extends HelpdeskPageobject {
 		WebElement element3 = driver.findElement(By.xpath("//b[contains(text(),'GST Filing')]"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
+		LoginPageobjects.Email.click();
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		System.out.println("Total Time for page load - " + totalTime);
@@ -91,12 +96,10 @@ public class Base extends HelpdeskPageobject {
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
 						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date3 + "\\Screenshot5.png",
-						"Payment Cart PageTotal Time for page load " + totalTime + "ms").build());
+						"GstFiling Home Page Time for load " + totalTime + "ms").build());
 		// HelpdeskPageobject.GSTRegistration.click();
 
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
-		LoginPageobjects.Email.click();
+		
 		if (LoginPageobjects.Email.isEnabled()) {
 
 			test.log(Status.PASS, "Email Username clicked");
@@ -104,7 +107,7 @@ public class Base extends HelpdeskPageobject {
 
 			test.log(Status.FAIL, "Email Username notfound");
 		}
-		LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
+		LoginPageobjects.Email.sendKeys("shakthi" + DateGstFiling + "@yopmail.com");
 
 		WebElement findElement = driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
 		findElement.click();
@@ -138,15 +141,17 @@ public class Base extends HelpdeskPageobject {
 		JavascriptExecutor executor3003 = (JavascriptExecutor) driver;
 		executor3003.executeScript("arguments[0].click();", element3003);
 
+		
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='nav-item'])[1]")));
+		driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
 		System.out.println("succes1");
 
 		long finish1 = System.currentTimeMillis();
 		long totalTime1 = finish1 - start1;
 		System.out.println("Total Time for page load - " + totalTime1);
 
-		Thread.sleep(4500);
-
-		driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+		
 		driver.findElement(By.xpath("//input[@id='gpay']")).click();
 		driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
 		screenshot.screenshot10(driver, extentreport);
@@ -191,19 +196,33 @@ public class Base extends HelpdeskPageobject {
 
 	public void Meesho(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws InterruptedException, AWTException, IOException {
+		SimpleDateFormat dateMeesho = new SimpleDateFormat("MMddyyMMS");
+		String DateMeesho = dateMeesho.format(new Date());
 		Robot robot = new Robot();
+		long start21 = System.currentTimeMillis();
 		driver.get("https://vakilsearch.com/partners/meesho");
+		screenshot.screenshot46(driver, extentreport);
 		test = extentreport.createTest("Meesho");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		long finish21 = System.currentTimeMillis();
+		long totalTime21 = finish21 - start21;
+		SimpleDateFormat dateFormat21 = new SimpleDateFormat("MMddyyyy");
+		String Date21 = dateFormat21.format(new Date());
+		screenshot.screenshot46(driver, extentreport);
+		test.log(Status.PASS,
+				MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date21 + "\\Screenshot46.png",
+						"Meesho Url page load "+totalTime21+"ms").build());
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")));
 
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]"))
-				.sendKeys("shakthi" + Date11 + "@yopmail.com");
+				.sendKeys("shakthi" + DateMeesho + "@yopmail.com");
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]"))
-				.sendKeys("9" + Date12);
+				.sendKeys("9" + DateMeesho);
 		Thread.sleep(2000);
 		WebElement element301 = driver
 				.findElement(By.xpath("(//div[@class='styles_buttonWrapper__bjGeC']/child::button)[1]"));
@@ -220,12 +239,13 @@ public class Base extends HelpdeskPageobject {
 		String Date2 = dateFormat2.format(new Date());
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screensho49.png",
-						"Payment Cart PageTotal Time for page load ").build());
+						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screenshot49.png",
+						"Meesho QA").build());
 		Thread.sleep(2000);
 		LoginPageobjects.Next.click();
-		Thread.sleep(3000);
-
+		
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[@class='mantine-Input-wrapper mantine-Select-wrapper mantine-12sbrde']/child::input")));
 		driver.findElement(
 				By.xpath("//div[@class='mantine-Input-wrapper mantine-Select-wrapper mantine-12sbrde']/child::input"))
 				.click();
@@ -276,6 +296,10 @@ public class Base extends HelpdeskPageobject {
 			WebElement element39 = driver.findElement(By.xpath("//div[@class='styles_btnContainer__Rl3WA']"));
 			JavascriptExecutor executor39 = (JavascriptExecutor) driver;
 			executor39.executeScript("arguments[0].click();", element39);
+			wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("(//div[@class='nav-item'])[1]")));
+			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+			
 			long finish2 = System.currentTimeMillis();
 			long totalTime2 = finish2 - start2;
 			System.out.println("Total Time for page load - " + totalTime2);
@@ -285,8 +309,8 @@ public class Base extends HelpdeskPageobject {
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
 							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot10.png",
-							"Payment Cart PageTotal Time for page load " + totalTime2).build());
-			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+							"Payment Cart PageTotal Time for page load " + totalTime2+"ms").build());
+			
 			driver.findElement(By.xpath("//input[@id='gpay']")).click();
 			driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
 			Thread.sleep(3000);
@@ -326,155 +350,7 @@ public class Base extends HelpdeskPageobject {
 		Thread.sleep(3500);
 	}
 
-	public void TrademarkRegistration(WebDriver driver, String Username, String Mobilenumber,
-			ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
-		test = extentreport.createTest("Trademark Registration");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		HelpdeskPageobject.TrademarkIP.click();
-
-		long start = System.currentTimeMillis();
-		WebElement element3 = driver.findElement(By.xpath("(//b[contains(text(),'Trademark Registration')])"));
-		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
-		executor3.executeScript("arguments[0].click();", element3);
-		long finish = System.currentTimeMillis();
-		long totalTime = finish - start;
-		System.out.println("Total Time for page load - " + totalTime);
-		screenshot.screenshot7(driver, extentreport);
-		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyy");
-		String Date2 = dateFormat1.format(new Date());
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screenshot7.png",
-						"Trademark Registration Time for page load " + totalTime + "ms").build());
-		// HelpdeskPageobject.GSTRegistration.click();
-
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
-		LoginPageobjects.Email.click();
-		if (LoginPageobjects.Email.isEnabled()) {
-
-			test.log(Status.PASS, "Email Username clicked");
-		} else {
-
-			test.log(Status.FAIL, "Email Username notfound");
-		}
-		LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
-
-		LoginPageobjects.PhonenumberTrademarkIP.click();
-		if (LoginPageobjects.PhonenumberTrademarkIP.isEnabled()) {
-
-			test.log(Status.PASS, " Phonenumber field clicked");
-		} else {
-
-			test.log(Status.FAIL, "Phonenumber field notfound");
-		}
-		LoginPageobjects.PhonenumberTrademarkIP.sendKeys("9" + Date12);
-		Thread.sleep(2000);
-		LoginPageobjects.CityTrademark.click();
-		LoginPageobjects.CityTrademark.sendKeys("chen");
-		if (LoginPageobjects.CityTrademark.isEnabled()) {
-
-			test.log(Status.PASS, "Select City clicked");
-		} else {
-
-			test.log(Status.FAIL, "Select City field notfound");
-		}
-
-		Thread.sleep(16000);
-		WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
-		wait.until(ExpectedConditions.elementToBeClickable(findElement12)).click();
-		Robot robot = new Robot();
-
-//		if (LoginPageobjects.whatsapptogleoff.isSelected()) {
-//
-//			test.log(Status.PASS, "whatsapptogle off");
-//		} else {
-//System.out.println("failed");
-//			test.log(Status.FAIL, "whatsapptogleoff Failed");
-//		}
-		LoginPageobjects.toggleTrademark.click();
-		Thread.sleep(2000);
-		long start2 = System.currentTimeMillis();
-		WebElement element501011 = driver.findElement(By.xpath("(//button[contains(text(),'Consult an Expert')])[1]"));
-		JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
-		executor501011.executeScript("arguments[0].click();", element501011);
-		// driver.findElement(By.xpath("(//button[contains(text(),'Consult an
-		// Expert')])[1]")).click();
-//System.out.println("succes1");
-
-		long finish2 = System.currentTimeMillis();
-		long totalTime2 = finish2 - start2;
-		System.out.println("Total Time for page load - " + totalTime2);
-		screenshot.screenshot8(driver, extentreport);
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyy");
-		String Date3 = dateFormat2.format(new Date());
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date3 + "\\Screenshot8.png",
-						"After Consult an Expert Click page load " + totalTime2 + "ms").build());
-		Thread.sleep(1500);
-
-		try {
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//div[@class='styles_content__g4N5_'])[4]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
-
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			Thread.sleep(3000);
-			long start3 = System.currentTimeMillis();
-			driver.findElement(By.xpath("//div[@class='styles_btnCta__Vt6zM']")).click();
-			long finish3 = System.currentTimeMillis();
-			long totalTime3 = finish3 - start3;
-			System.out.println("Total Time for page load - " + totalTime2);
-			screenshot.screenshot9(driver, extentreport);
-			SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMddyyyy");
-			String Date4 = dateFormat4.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot9.png",
-							"Payment Cart Page  Time for load " + totalTime2 + "ms").build());
-
-			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
-			driver.findElement(By.xpath("//input[@id='gpay']")).click();
-			driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-
-			try {
-
-				driver.findElement(By.xpath("//i[@class='back']")).click();
-				try {
-					driver.switchTo().alert().accept();
-				} catch (Exception Z) {
-					System.out.println(Z);
-				}
-				// driver.findElement(By.xpath("//i[@class='back']")).click();
-				driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
-				driver.switchTo().alert().accept();
-
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-		} catch (Exception MyIntrest1) {
-			screenshot.screenshot9(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot9.png",
-							"Payment Cart Page").build());
-			System.out.println(MyIntrest1);
-		}
-		try {
-			driver.switchTo().alert().accept();
-		} catch (Exception Alert34) {
-			System.out.println(Alert34);
-		}
-		Thread.sleep(4500);
-	}
+	
 
 	public void helpdesk(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,
 			String Helpdeskuserid, String helpdeskpassword) throws InterruptedException {
@@ -508,41 +384,30 @@ public class Base extends HelpdeskPageobject {
 			executor501011.executeScript("arguments[0].click();", element501011);
 			element501011.sendKeys("9789955331");
 			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
-			String ticket3 = driver
-					.findElement(
-							By.xpath("(//tr[@class='ticket_index_tr'])[3]//child::td/child::div/child::ul/child::li"))
-					.getText().substring(0, 51);
+			
 			String ticket2 = driver
 					.findElement(
 							By.xpath("(//tr[@class='ticket_index_tr'])[2]//child::td/child::div/child::ul/child::li"))
-					.getText().substring(0, 49);
+					.getText().substring(0, 27);
 			String ticket1 = driver
 					.findElement(
 							By.xpath("(//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li"))
-					.getText().substring(0, 39);
-			String ticket02 = "Need Help with : Goods & Service Tax Registration";
-			String ticket03 = "Need Help with : Private Limited Company Registration";
-			String ticket01 = "Need Help with : Trademark Registration";
+					.getText().substring(0, 48);
+			String ticket02 = "Need Help with : GST Filings";
+			String ticket01 = "Need Help with : Goods & Service Tax Registration";
 
-			if (ticket3.contains(ticket03)) {
+			if (ticket02.contains(ticket2)) {
 
-				test.log(Status.PASS, "Private Limited Company Registration lead verified");
+				test.log(Status.PASS, "Need Help with : GST Filings lead verified");
 			} else {
-				test.log(Status.FAIL, "Private Limited Company Registration lead Failed");
+				test.log(Status.FAIL, "Need Help with : GST Filings lead Failed");
 			}
 
-			if (ticket2.contains(ticket02)) {
+			if (ticket01.contains(ticket1)) {
 
-				test.log(Status.PASS, "Need Help with : Goods & Service Tax Registration lead verified");
+				test.log(Status.PASS, "Need Help with : Goods & Service Tax Registration verified");
 			} else {
-				test.log(Status.FAIL, "Need Help with : Goods & Service Tax Registration lead Failed");
-			}
-
-			if (ticket1.contains(ticket01)) {
-
-				test.log(Status.PASS, "Need Help with : Trademark Registration lead verified");
-			} else {
-				test.log(Status.FAIL, "Need Help with : Trademark Registration lead Failed");
+				test.log(Status.FAIL, "Need Help with : Goods & Service Tax Registration Failed");
 			}
 
 		} catch (Exception Search) {
