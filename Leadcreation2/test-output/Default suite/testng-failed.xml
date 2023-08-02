@@ -11,7 +11,7 @@
           <include name="Login"/>
           <include name="Max"/>
           <include name="Report"/>
-          <include name="Customercreation100" invocation-numbers="0"/>
+          <include name="Customercreation100"/>
         </methods>
       </class> <!-- LeadCreation.Leadcreation -->
     </classes>
