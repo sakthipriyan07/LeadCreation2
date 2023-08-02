@@ -51,7 +51,7 @@ public class Leadcreation {
 
 	public String[][] getExcelData() throws BiffException, IOException {
 		FileInputStream excel = new FileInputStream(
-				"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\Items jxl.xls");
+				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\Items jxl.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("Sheet5");
 		int rowCount = sheet.getRows();

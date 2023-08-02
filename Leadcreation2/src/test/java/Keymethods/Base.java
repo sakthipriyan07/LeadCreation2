@@ -43,29 +43,14 @@ public class Base extends HelpdeskPageobject {
 		test = extentreport.createTest("Vakilsearch Test");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
-
+		long startVK = System.currentTimeMillis();
 		driver.get("https://vakilsearch.com/");
-
+		long finishVK = System.currentTimeMillis();
+		long totalTimeVK = finishVK - startVK;
+		System.out.println("Total Time for page load - " + totalTimeVK);
+		test.log(Status.PASS,"Vakilsearch Page Time for load " + totalTimeVK + "ms");
 		PageFactory.initElements(driver, LoginPageobjects.class);
-		if (driver.getTitle() != "Online Legal Services for Startups & SMEs in India | Vakil Search") {
-			screenshot.screenshot1(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot1.png",
-							"VakilSearchURL launched").build());
-
-		} else {
-			screenshot.screenshot1(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot1.png",
-							"VakilSearchURL").build());
-
-		}
+		
 
 		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
 		// Thread.sleep(2000);
@@ -90,23 +75,8 @@ public class Base extends HelpdeskPageobject {
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		System.out.println("Total Time for page load - " + totalTime);
-		screenshot.screenshot5(driver, extentreport);
-		SimpleDateFormat dateFormat3 = new SimpleDateFormat("MMddyyyy");
-		String Date3 = dateFormat3.format(new Date());
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date3 + "\\Screenshot5.png",
-						"GstFiling Home Page Time for load " + totalTime + "ms").build());
+		test.log(Status.PASS,"Lead Creation " + totalTime + "ms");
 		// HelpdeskPageobject.GSTRegistration.click();
-
-		
-		if (LoginPageobjects.Email.isEnabled()) {
-
-			test.log(Status.PASS, "Email Username clicked");
-		} else {
-
-			test.log(Status.FAIL, "Email Username notfound");
-		}
 		LoginPageobjects.Email.sendKeys("shakthi" + DateGstFiling + "@yopmail.com");
 
 		WebElement findElement = driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
@@ -131,7 +101,7 @@ public class Base extends HelpdeskPageobject {
 //
 //			test.log(Status.PASS, "whatsapptogle off");
 //		} else {
-//System.out.println("failed");
+//      System.out.println("failed");
 //			test.log(Status.FAIL, "whatsapptogleoff Failed");
 //		}
 		Thread.sleep(2000);
@@ -154,13 +124,8 @@ public class Base extends HelpdeskPageobject {
 		
 		driver.findElement(By.xpath("//input[@id='gpay']")).click();
 		driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-		screenshot.screenshot10(driver, extentreport);
-		SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMddyyyy");
-		String Date4 = dateFormat4.format(new Date());
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot10.png",
-						"Payment Cart PageTotal Time for page load " + totalTime1).build());
+		
+		test.log(Status.PASS,"Payment Cart PageTotal Time for page load " + totalTime1);
 		Thread.sleep(3000);
 		try {
 
@@ -209,11 +174,8 @@ public class Base extends HelpdeskPageobject {
 		long totalTime21 = finish21 - start21;
 		SimpleDateFormat dateFormat21 = new SimpleDateFormat("MMddyyyy");
 		String Date21 = dateFormat21.format(new Date());
-		screenshot.screenshot46(driver, extentreport);
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date21 + "\\Screenshot46.png",
-						"Meesho Url page load "+totalTime21+"ms").build());
+		
+		test.log(Status.PASS,"Meesho Lead Creation "+totalTime21+"ms");
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")));
 
@@ -234,13 +196,8 @@ public class Base extends HelpdeskPageobject {
 				.elementToBeClickable(By.xpath("//label[contains(text(),'No, I don’t have a company name')]")));
 
 		LoginPageobjects.noidonthaveacompanyNameGSTRig.click();
-		screenshot.screenshot49(driver, extentreport);
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyy");
-		String Date2 = dateFormat2.format(new Date());
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date2 + "\\Screenshot49.png",
-						"Meesho QA").build());
+		
+		
 		Thread.sleep(2000);
 		LoginPageobjects.Next.click();
 		
@@ -303,13 +260,8 @@ public class Base extends HelpdeskPageobject {
 			long finish2 = System.currentTimeMillis();
 			long totalTime2 = finish2 - start2;
 			System.out.println("Total Time for page load - " + totalTime2);
-			screenshot.screenshot10(driver, extentreport);
-			SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMddyyyy");
-			String Date4 = dateFormat4.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date4 + "\\Screenshot10.png",
-							"Payment Cart PageTotal Time for page load " + totalTime2+"ms").build());
+			
+			test.log(Status.PASS,"Payment Cart Page " + totalTime2+"ms");
 			
 			driver.findElement(By.xpath("//input[@id='gpay']")).click();
 			driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
@@ -333,13 +285,8 @@ public class Base extends HelpdeskPageobject {
 			// account')]")).click();
 
 		} catch (Exception MyIntrest1) {
-			screenshot.screenshot10(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation2\\" + Date1 + "\\Screenshot10.png",
-							"Otp Validation / Payment Cart Page").build());
+			
+			test.log(Status.PASS,"Otp Validation / Payment Cart Page");
 			System.out.println("MyIntrest1");
 		}
 		try {
