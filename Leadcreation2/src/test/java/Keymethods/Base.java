@@ -193,9 +193,9 @@ public class Base extends HelpdeskPageobject {
 		// driver.findElement(By.xpath("(//div[@class='styles_buttonWrapper__bjGeC']/child::button)[1]")).click();
 
 		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//label[contains(text(),'No, I don’t have a company name')]")));
-
-		LoginPageobjects.noidonthaveacompanyNameGSTRig.click();
+				.elementToBeClickable(By.xpath("//label[contains(text(),'No, I don’t have a company name')]/parent::div")));
+driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company name')]/parent::div")).click();
+	
 		
 		
 		Thread.sleep(2000);
