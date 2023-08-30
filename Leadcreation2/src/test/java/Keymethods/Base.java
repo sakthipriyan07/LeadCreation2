@@ -35,7 +35,7 @@ public class Base extends HelpdeskPageobject {
 	ScreenShot screenshot = new ScreenShot();
 	SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 	String Date11 = dateFormat1.format(new Date());
-	SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMyyMMSS");
+	SimpleDateFormat dateFormat2 = new SimpleDateFormat("wwyyyyhh");
 	String Date12 = dateFormat2.format(new Date());
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
@@ -77,7 +77,7 @@ public class Base extends HelpdeskPageobject {
 		System.out.println("Total Time for page load - " + totalTime);
 		test.log(Status.PASS,"Lead Creation " + totalTime + "ms");
 		// HelpdeskPageobject.GSTRegistration.click();
-		LoginPageobjects.Email.sendKeys("shakthi" + DateGstFiling + "@yopmail.com");
+		LoginPageobjects.Email.sendKeys("shakthi" + Date12 + "@yopmail.com");
 
 		WebElement findElement = driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
 		findElement.click();
@@ -181,7 +181,7 @@ public class Base extends HelpdeskPageobject {
 
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]"))
-				.sendKeys("shakthi" + DateMeesho + "@yopmail.com");
+				.sendKeys("shakthi" + Date12 + "@yopmail.com");
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]"))
 				.sendKeys("9" + DateMeesho);
@@ -329,7 +329,7 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
-			element501011.sendKeys("9789955331");
+			element501011.sendKeys("shakthi" + Date12 + "@yopmail.com");
 			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
 			
 			String ticket2 = driver
