@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-29T15:31:10 IST" name="Default suite" finished-at="2023-08-29T15:33:10 IST" duration-ms="120578">
+  <suite started-at="2023-08-30T13:42:04 IST" name="Default suite" finished-at="2023-08-30T13:44:54 IST" duration-ms="170861">
     <groups>
     </groups>
-    <test started-at="2023-08-29T15:31:10 IST" name="Default test" finished-at="2023-08-29T15:33:10 IST" duration-ms="120578">
+    <test started-at="2023-08-30T13:42:04 IST" name="Default test" finished-at="2023-08-30T13:44:54 IST" duration-ms="170861">
       <class name="LeadCreation.Leadcreation">
-        <test-method is-config="true" signature="Login()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:31:09 IST" name="Login" finished-at="2023-08-29T15:31:10 IST" duration-ms="535" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:42:03 IST" name="Login" finished-at="2023-08-30T13:42:04 IST" duration-ms="529" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Max()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:31:10 IST" name="Max" finished-at="2023-08-29T15:31:13 IST" duration-ms="3204" status="PASS">
+        <test-method is-config="true" signature="Max()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:42:04 IST" name="Max" finished-at="2023-08-30T13:42:07 IST" duration-ms="3150" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Max -->
-        <test-method is-config="true" signature="url()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:31:13 IST" name="url" finished-at="2023-08-29T15:31:16 IST" duration-ms="3096" status="PASS">
+        <test-method is-config="true" signature="url()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:42:07 IST" name="url" finished-at="2023-08-30T13:42:10 IST" duration-ms="3105" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- url -->
-        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:31:16 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-29T15:33:10 IST" duration-ms="113411" status="PASS">
+        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:42:10 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-30T13:44:54 IST" duration-ms="163762" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -115,15 +115,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Customercreation100 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:33:10 IST" name="close" finished-at="2023-08-29T15:33:10 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:44:54 IST" name="close" finished-at="2023-08-30T13:44:54 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="Report()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:33:10 IST" name="Report" finished-at="2023-08-29T15:33:10 IST" duration-ms="622" status="PASS">
+        <test-method is-config="true" signature="Report()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:44:54 IST" name="Report" finished-at="2023-08-30T13:44:54 IST" duration-ms="557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Report -->
-        <test-method is-config="true" signature="Mail()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-29T15:33:10 IST" name="Mail" finished-at="2023-08-29T15:33:10 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="Mail()[pri:0, instance:LeadCreation.Leadcreation@635eaaf1]" started-at="2023-08-30T13:44:54 IST" name="Mail" finished-at="2023-08-30T13:44:55 IST" duration-ms="354" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Mail -->

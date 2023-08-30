@@ -35,7 +35,7 @@ public class Base extends HelpdeskPageobject {
 	ScreenShot screenshot = new ScreenShot();
 	SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 	String Date11 = dateFormat1.format(new Date());
-	SimpleDateFormat dateFormat2 = new SimpleDateFormat("wwyyyyhh");
+	SimpleDateFormat dateFormat2 = new SimpleDateFormat("ddyyyyhh");
 	String Date12 = dateFormat2.format(new Date());
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
@@ -81,7 +81,7 @@ public class Base extends HelpdeskPageobject {
 
 		WebElement findElement = driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
 		findElement.click();
-		findElement.sendKeys("9789955331");
+		findElement.sendKeys("91"+Date12);
 
 		Thread.sleep(2000);
 
@@ -181,7 +181,7 @@ public class Base extends HelpdeskPageobject {
 
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]"))
-				.sendKeys("shakthi" + Date12 + "@yopmail.com");
+				.sendKeys("shakthi" + DateMeesho + "@yopmail.com");
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]")).click();
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]"))
 				.sendKeys("9" + DateMeesho);
@@ -300,10 +300,10 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 	
 
 	public void helpdesk(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,
-			String Helpdeskuserid, String helpdeskpassword) throws InterruptedException {
+			String Helpdeskuserid, String helpdeskpassword) throws InterruptedException, AWTException {
 		test = extentreport.createTest("HelpDesk lead Verification Result");
 		driver.get("https://helpdesk.vakilsearch.com/login");
-
+		Robot robot = new Robot();
 		Thread.sleep(10000);
 		Username1.sendKeys(Helpdeskuserid);
 		String text1 = Username1.getText();
@@ -330,18 +330,15 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
 			element501011.sendKeys("shakthi" + Date12 + "@yopmail.com");
+		
 			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
 			
 			String ticket2 = driver
 					.findElement(
 							By.xpath("(//tr[@class='ticket_index_tr'])[2]//child::td/child::div/child::ul/child::li"))
 					.getText().substring(0, 27);
-			String ticket1 = driver
-					.findElement(
-							By.xpath("(//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li"))
-					.getText().substring(0, 48);
-			String ticket02 = "Need Help with : GST Filings";
-			String ticket01 = "Need Help with : Goods & Service Tax Registration";
+						String ticket02 = "Need Help with : GST Filings";
+			
 
 			if (ticket02.contains(ticket2)) {
 
@@ -349,7 +346,24 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			} else {
 				test.log(Status.FAIL, "Need Help with : GST Filings lead Failed");
 			}
-
+			
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			Thread.sleep(3000);
+			WebElement element5010111 = driver.findElement(By.xpath("//input[@id='search']"));
+			JavascriptExecutor executor5010111 = (JavascriptExecutor) driver;
+			executor5010111.executeScript("arguments[0].click();", element5010111);
+			
+		
+			element5010111.sendKeys("9789955331");
+			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
+			String ticket1 = driver
+					.findElement(
+							By.xpath("(//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li"))
+					.getText().substring(0, 48);
+			String ticket01 = "Need Help with : Goods & Service Tax Registration";
 			if (ticket01.contains(ticket1)) {
 
 				test.log(Status.PASS, "Need Help with : Goods & Service Tax Registration verified");
