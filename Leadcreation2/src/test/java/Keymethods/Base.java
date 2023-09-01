@@ -127,16 +127,7 @@ public class Base extends HelpdeskPageobject {
 		
 		test.log(Status.PASS,"Payment Cart PageTotal Time for page load " + totalTime1);
 		Thread.sleep(3000);
-		try {
-
-			driver.findElement(By.xpath("//i[@class='back']")).click();
-			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
-
-		} catch (Exception e) {
-			driver.switchTo().alert().accept();
-			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
-			System.out.println(e);
-		}
+	
 
 		// driver.findElement(By.xpath("//button[contains(text(),'View
 		// account')]")).click();
@@ -223,7 +214,7 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 //
 //			Thread.sleep(3000);
 		Thread.sleep(3000);
-		try {
+		
 			driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_A);
@@ -253,9 +244,6 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			WebElement element39 = driver.findElement(By.xpath("//div[@class='styles_btnContainer__Rl3WA']"));
 			JavascriptExecutor executor39 = (JavascriptExecutor) driver;
 			executor39.executeScript("arguments[0].click();", element39);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("(//div[@class='nav-item'])[1]")));
-			driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
 			
 			long finish2 = System.currentTimeMillis();
 			long totalTime2 = finish2 - start2;
@@ -263,42 +251,9 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			
 			test.log(Status.PASS,"Payment Cart Page " + totalTime2+"ms");
 			
-			driver.findElement(By.xpath("//input[@id='gpay']")).click();
-			driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-			Thread.sleep(3000);
-			try {
-
-				driver.findElement(By.xpath("//i[@class='back']")).click();
-
-				try {
-					driver.switchTo().alert().accept();
-				} catch (Exception Z) {
-					System.out.println(Z);
-				}
-				driver.findElement(By.xpath("//i[@class='back']")).click();
-
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
-			// driver.findElement(By.xpath("//button[contains(text(),'View
-			// account')]")).click();
-
-		} catch (Exception MyIntrest1) {
 			
-			test.log(Status.PASS,"Otp Validation / Payment Cart Page");
-			System.out.println("MyIntrest1");
-		}
-		try {
-			driver.switchTo().alert().accept();
-		} catch (Exception Alert34) {
-			System.out.println(Alert34);
-		}
-		Thread.sleep(3500);
+		
 	}
-
-	
-
 	public void helpdesk(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,
 			String Helpdeskuserid, String helpdeskpassword) throws InterruptedException, AWTException {
 		test = extentreport.createTest("HelpDesk lead Verification Result");
@@ -335,7 +290,7 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			
 			String ticket2 = driver
 					.findElement(
-							By.xpath("(//tr[@class='ticket_index_tr'])[2]//child::td/child::div/child::ul/child::li"))
+							By.xpath("(//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li"))
 					.getText().substring(0, 27);
 						String ticket02 = "Need Help with : GST Filings";
 			
@@ -346,7 +301,7 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			} else {
 				test.log(Status.FAIL, "Need Help with : GST Filings lead Failed");
 			}
-			
+			Thread.sleep(3000);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_R);
@@ -358,6 +313,17 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			
 		
 			element5010111.sendKeys("9789955331");
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_A);
+			robot.keyRelease(KeyEvent.VK_A);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			
+			robot.keyPress(KeyEvent.VK_DELETE);
+			robot.keyRelease(KeyEvent.VK_DELETE);
+			
+			
+			element5010111.sendKeys("9789955331");
+			
 			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
 			String ticket1 = driver
 					.findElement(
