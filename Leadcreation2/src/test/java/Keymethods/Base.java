@@ -40,7 +40,7 @@ public class Base extends HelpdeskPageobject {
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws InterruptedException, AWTException, IOException {
-		test = extentreport.createTest("Vakilsearch Test");
+		test = extentreport.createTest("Vakilsearch Landing Page");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 		long startVK = System.currentTimeMillis();
@@ -48,7 +48,7 @@ public class Base extends HelpdeskPageobject {
 		long finishVK = System.currentTimeMillis();
 		long totalTimeVK = finishVK - startVK;
 		System.out.println("Total Time for page load - " + totalTimeVK);
-		test.log(Status.PASS,"Vakilsearch Page Time for load " + totalTimeVK + "ms");
+		test.log(Status.PASS,"Vakilsearch landing Page Time for load " + totalTimeVK + "ms");
 		PageFactory.initElements(driver, LoginPageobjects.class);
 		
 
@@ -75,7 +75,7 @@ public class Base extends HelpdeskPageobject {
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		System.out.println("Total Time for page load - " + totalTime);
-		test.log(Status.PASS,"Lead Creation " + totalTime + "ms");
+		test.log(Status.PASS,"Gst Filing page redirection " + totalTime + "ms");
 		// HelpdeskPageobject.GSTRegistration.click();
 		LoginPageobjects.Email.sendKeys("shakthi" + Date12 + "@yopmail.com");
 
@@ -125,7 +125,7 @@ public class Base extends HelpdeskPageobject {
 		driver.findElement(By.xpath("//input[@id='gpay']")).click();
 		driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
 		
-		test.log(Status.PASS,"Payment Cart PageTotal Time for page load " + totalTime1);
+		test.log(Status.PASS,"Payment Page redirection " + totalTime1);
 		Thread.sleep(3000);
 	
 
@@ -166,7 +166,7 @@ public class Base extends HelpdeskPageobject {
 		SimpleDateFormat dateFormat21 = new SimpleDateFormat("MMddyyyy");
 		String Date21 = dateFormat21.format(new Date());
 		
-		test.log(Status.PASS,"Meesho Lead Creation "+totalTime21+"ms");
+		test.log(Status.PASS,"Meesho page redirection "+totalTime21+"ms");
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[1]")));
 
@@ -177,6 +177,9 @@ public class Base extends HelpdeskPageobject {
 		driver.findElement(By.xpath("(//div[@class='styles_input_wrap__VCQ5_']/child::input)[2]"))
 				.sendKeys("9" + DateMeesho);
 		Thread.sleep(2000);
+		
+		long start211 = System.currentTimeMillis();
+		
 		WebElement element301 = driver
 				.findElement(By.xpath("(//div[@class='styles_buttonWrapper__bjGeC']/child::button)[1]"));
 		JavascriptExecutor executor301 = (JavascriptExecutor) driver;
@@ -186,7 +189,12 @@ public class Base extends HelpdeskPageobject {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//label[contains(text(),'No, I don’t have a company name')]/parent::div")));
 driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company name')]/parent::div")).click();
-	
+
+long finish211 = System.currentTimeMillis();
+long totalTime211 = finish211 - start211;
+
+
+test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime211+"ms");
 		
 		
 		Thread.sleep(2000);
@@ -249,7 +257,7 @@ driver.findElement(By.xpath("//label[contains(text(),'No, I don’t have a company
 			long totalTime2 = finish2 - start2;
 			System.out.println("Total Time for page load - " + totalTime2);
 			
-			test.log(Status.PASS,"Payment Cart Page " + totalTime2+"ms");
+			test.log(Status.PASS,"Payment Page Redirection " + totalTime2+"ms");
 			
 			
 		
