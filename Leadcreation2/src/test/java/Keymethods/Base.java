@@ -92,6 +92,7 @@ public class Base extends HelpdeskPageobject {
 		element3001.sendKeys("chen");
 
 		Thread.sleep(16000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]")));
 		WebElement element3002 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
 		JavascriptExecutor executor3002 = (JavascriptExecutor) driver;
 		executor3002.executeScript("arguments[0].click();", element3002);
@@ -113,8 +114,8 @@ public class Base extends HelpdeskPageobject {
 
 		
 		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='nav-item'])[1]")));
-		driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+				ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")));
+		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")).click();
 		System.out.println("succes1");
 
 		long finish1 = System.currentTimeMillis();
@@ -122,6 +123,28 @@ public class Base extends HelpdeskPageobject {
 		System.out.println("Total Time for page load - " + totalTime1);
 
 		
+		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")).sendKeys("Foodball");
+		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section div[class='styles_flexBtn__HEAUZ styles_nextBtn__BsVD2']")).click();
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".css-ackcql")));
+		driver.findElement(By.cssSelector(".css-ackcql")).click();
+		robot.keyPress(KeyEvent.VK_DOWN);
+		robot.keyRelease(KeyEvent.VK_DOWN);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section div[class='styles_buttonContainer__Kv4_w '] div[class='styles_btnTitle__ag84o']")).click();
+		
+		driver.findElement(By.cssSelector("body > div:nth-child(2) > section:nth-child(1) > main:nth-child(2) > section:nth-child(1) > section:nth-child(1) > section:nth-child(2) > section:nth-child(1) > section:nth-child(2) > section:nth-child(1) > main:nth-child(1) > section:nth-child(3) > div:nth-child(2)")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section img[alt='Next']")));
+		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section img[alt='Next']")).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/section[1]/section[1]/section[1]/section[2]/section[1]/main[1]/section[3]/div[1]"))).click();
+
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/section[1]/section[1]/section[1]/section[2]/section[1]/main[1]/section[4]/div[2]/button[1]")).click();
+	Thread.sleep(3500);
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/button[1]/span[1]")).click();
+		Thread.sleep(3500);
 		driver.findElement(By.xpath("//input[@id='gpay']")).click();
 		driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
 		
@@ -247,7 +270,7 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_btnContainer__Rl3WA']")));
 			long start2 = System.currentTimeMillis();
 			WebElement element39 = driver.findElement(By.xpath("//div[@class='styles_btnContainer__Rl3WA']"));
 			JavascriptExecutor executor39 = (JavascriptExecutor) driver;
