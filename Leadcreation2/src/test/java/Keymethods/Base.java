@@ -64,9 +64,10 @@ public class Base extends HelpdeskPageobject {
 		test = extentreport.createTest("GSTReturnsFiling");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Thread.sleep(2000);
+		try {
 		HelpdeskPageobject.TaxCompliance.click();
 		long start = System.currentTimeMillis();
-		WebElement element3 = driver.findElement(By.xpath("//b[contains(text(),'GST Filing')]"));
+		WebElement element3 = driver.findElement(By.xpath("(//a[contains(text(),'GST Filing')])[1]"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
 		wait.until(
@@ -108,14 +109,14 @@ public class Base extends HelpdeskPageobject {
 		Thread.sleep(2000);
 		long start1 = System.currentTimeMillis();
 
-		WebElement element3003 = driver.findElement(By.xpath("//button[@class='styles_actionBtn__xPQyU']"));
+		WebElement element3003 = driver.findElement(By.xpath("(//button[contains(text(),'Consult an Expert')])[1]"));
 		JavascriptExecutor executor3003 = (JavascriptExecutor) driver;
 		executor3003.executeScript("arguments[0].click();", element3003);
 
 		
 		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")));
-		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")).click();
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@placeholder='Enter your industry (e.g.food, E-commerce)'])[1]")));
+		driver.findElement(By.xpath("(//input[@placeholder='Enter your industry (e.g.food, E-commerce)'])[1]")).click();
 		System.out.println("succes1");
 
 		long finish1 = System.currentTimeMillis();
@@ -123,33 +124,34 @@ public class Base extends HelpdeskPageobject {
 		System.out.println("Total Time for page load - " + totalTime1);
 
 		
-		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section input[placeholder='Enter your industry (e.g.food, E-commerce)']")).sendKeys("Foodball");
-		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section div[class='styles_flexBtn__HEAUZ styles_nextBtn__BsVD2']")).click();
+		driver.findElement(By.xpath("(//input[@placeholder='Enter your industry (e.g.food, E-commerce)'])[1]")).sendKeys("Foodball");
+		driver.findElement(By.xpath("(//div[contains(text(),'Next')])[1]")).click();
 		Thread.sleep(3000);
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".css-ackcql")));
-		driver.findElement(By.cssSelector(".css-ackcql")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=' css-1xc3v61-indicatorContainer']")));
+		driver.findElement(By.xpath("//div[@class=' css-1xc3v61-indicatorContainer']")).click();
 		robot.keyPress(KeyEvent.VK_DOWN);
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		
-		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section div[class='styles_buttonContainer__Kv4_w '] div[class='styles_btnTitle__ag84o']")).click();
+		driver.findElement(By.xpath("(//div[contains(text(),'Next')])[1]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//input[@type='radio'])[1]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'Next')])[1]")));
+		driver.findElement(By.xpath("(//div[contains(text(),'Next')])[1]")).click();
 		
-		driver.findElement(By.cssSelector("body > div:nth-child(2) > section:nth-child(1) > main:nth-child(2) > section:nth-child(1) > section:nth-child(1) > section:nth-child(2) > section:nth-child(1) > section:nth-child(2) > section:nth-child(1) > main:nth-child(1) > section:nth-child(3) > div:nth-child(2)")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section img[alt='Next']")));
-		driver.findElement(By.cssSelector("section[class='styles_bundleWrapper__YhJgf'] section section[class='styles_desktopContainer__rS9Dc'] section section img[alt='Next']")).click();
-		
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/section[1]/section[1]/section[1]/section[2]/section[1]/main[1]/section[3]/div[1]"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(text(),'Proceed to pay')])[1]"))).click();
 
-		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/section[1]/section[1]/section[1]/section[2]/section[1]/main[1]/section[4]/div[2]/button[1]")).click();
-	Thread.sleep(3500);
-		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/button[1]/span[1]")).click();
-		Thread.sleep(3500);
-		driver.findElement(By.xpath("//input[@id='gpay']")).click();
-		driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
+	
+	
 		
 		test.log(Status.PASS,"Payment Page redirection " + totalTime1);
 		Thread.sleep(3000);
+		}catch (Exception Gstfiling) {
+			System.out.println(Gstfiling);
+			test.log(Status.FAIL, Gstfiling);	
+		}
+		}
 	
 
 		// driver.findElement(By.xpath("//button[contains(text(),'View
@@ -171,7 +173,7 @@ public class Base extends HelpdeskPageobject {
 //			System.out.println(Alert34);
 //		}
 //		Thread.sleep(3500);
-	}
+	
 
 	public void Meesho(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws InterruptedException, AWTException, IOException {
@@ -221,7 +223,8 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 		
 		
 		Thread.sleep(2000);
-		LoginPageobjects.Next.click();
+		driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
+		
 		
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[@class='mantine-Input-wrapper mantine-Select-wrapper mantine-12sbrde']/child::input")));
@@ -232,7 +235,8 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		LoginPageobjects.Next.click();
+		driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
+		
 
 //			Thread.sleep(2000);
 //			LoginPageobjects.Ageofbusiness.click();
@@ -246,23 +250,23 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 //			Thread.sleep(3000);
 		Thread.sleep(3000);
 		
-			driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
+			driver.findElement(By.xpath("//input[@type='number']")).click();
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_A);
 			robot.keyRelease(KeyEvent.VK_A);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_DELETE);
 			robot.keyRelease(KeyEvent.VK_DELETE);
-			driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
+			driver.findElement(By.xpath("//input[@type='number']")).sendKeys("9789955331");
 			driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
 			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
+			driver.findElement(By.xpath("(//input[@type='number'])[2]"))
 					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
+			driver.findElement(By.xpath("(//input[@type='number'])[3]"))
 					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
+			driver.findElement(By.xpath("(//input[@type='number'])[4]"))
 					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
+			driver.findElement(By.xpath("(//input[@type='number'])[5]"))
 					.sendKeys("0");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
@@ -270,9 +274,9 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_btnContainer__Rl3WA']")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Proceed to pay')]")));
 			long start2 = System.currentTimeMillis();
-			WebElement element39 = driver.findElement(By.xpath("//div[@class='styles_btnContainer__Rl3WA']"));
+			WebElement element39 = driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]"));
 			JavascriptExecutor executor39 = (JavascriptExecutor) driver;
 			executor39.executeScript("arguments[0].click();", element39);
 			

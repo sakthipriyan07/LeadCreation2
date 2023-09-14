@@ -48,7 +48,7 @@ public class HomescreenPageobject extends NewCRMPageobject {
 	@FindBy(xpath = "//button[contains(text(),'YES, CANCEL')]")
 	public static WebElement Yestocancel ;
 	
-	@FindBy(xpath = "//a[contains(text(),'Tax & Compliance')]")
+	@FindBy(xpath = "(//p[contains(text(),'Tax & Compliance')])[1]")
 	public static WebElement TaxCompliance ;
 	
 	@FindBy(xpath = "(//a[contains(text(),'GST Registration')])[1]")
