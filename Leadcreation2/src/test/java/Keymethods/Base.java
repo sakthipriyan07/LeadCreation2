@@ -135,7 +135,7 @@ public class Base extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Next')])[1]")).click();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		driver.findElement(By.xpath("(//input[@type='radio'])[1]")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'Next')])[1]")));
 		driver.findElement(By.xpath("(//div[contains(text(),'Next')])[1]")).click();
@@ -222,7 +222,7 @@ long totalTime211 = finish211 - start211;
 test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime211+"ms");
 		
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
 		
 		
@@ -248,7 +248,7 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 //			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //
 //			Thread.sleep(3000);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 			driver.findElement(By.xpath("//input[@type='number']")).click();
 			robot.keyPress(KeyEvent.VK_CONTROL);
@@ -268,7 +268,7 @@ test.log(Status.PASS,"Do you have company Qestion page redirection "+totalTime21
 					.sendKeys("0");
 			driver.findElement(By.xpath("(//input[@type='number'])[5]"))
 					.sendKeys("0");
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
